@@ -2,7 +2,8 @@
 function solveEquation(a, b, c) {
   let arr = [];
   let D = b**2 - 4*a*c;
-  let x1; x2;
+  let x1; 
+  let x2;
 
   if (D < 0) {
     arr = [];
@@ -15,5 +16,3 @@ function solveEquation(a, b, c) {
 
   return arr; // array
 }
-
-solveEquation(1, 2, 3);
