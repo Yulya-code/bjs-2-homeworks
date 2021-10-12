@@ -9,9 +9,11 @@ function solveEquation(a, b, c) {
     arr = [];
   } else if (D == 0) {
     x1 = -b / (2 * a)
+    arr.push(x1);
   } else if (D > 0) {
     x1 = (-b + Math.sqrt(d))/(2*a);
-    x2 = (-b - Math.sqrt(d) )/(2 * a)
+    x2 = (-b - Math.sqrt(d) )/(2 * a);
+    arr.push(x1, x2);
   }
 
   return arr; // array
