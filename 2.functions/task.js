@@ -22,16 +22,15 @@ function worker(arr) {
     sum += arr[i];
   }
 
-  // Ваш код
-
   return sum;
 }
 
 function makeWork(arrOfArr, func) {
   let max = -Infinity;
-
-  // Ваш кода
-  // for ...
+  for (let i = 0; i < arrOfArr.length; i++) {
+    let a = func(arrOfArr[i]);
+    a > max ? max = a : max = max;
+  }
   
   return max;
 }
