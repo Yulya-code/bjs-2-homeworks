@@ -37,5 +37,17 @@ function makeWork(arrOfArr, func) {
 
 // Задание 3
 function worker2(arr) {
-  // Ваш код
+  let min;
+  let max;
+
+  min = arr[0];
+  max = arr[0];
+
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] > max ? max = arr[i] : max = max;
+    arr[i] < min ? min = arr[i] : min = min;
+  } 
+
+ return (max - min);
+
 }
