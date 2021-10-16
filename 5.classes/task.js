@@ -1,5 +1,4 @@
 class PrintEditionItem {
-
     constructor (name, releaseDate, pagesCount) {
         this.name = name;
         this.releaseDate = releaseDate;
@@ -7,6 +6,9 @@ class PrintEditionItem {
         this.state = 100;
         this.type = null;
     }
+}
+  const item1 = new Item();
+  const item2 = new Item();
 
     fix() {
      this.state *= 1,5;
@@ -25,13 +27,12 @@ class PrintEditionItem {
     get state() {
         return this._state;
     }
-}
 
 class Magazine extends PrintEditionItem {
     constructor(name, releaseDate, pagesCount) {
         super (name, releaseDate, pagesCount);
         this.type = 'magazine';
-}
+    }
 }
 
 class Book extends PrintEditionItem {
@@ -39,7 +40,7 @@ class Book extends PrintEditionItem {
     super (name, releaseDate, pagesCount);    
     this.type = 'book';
     this.author = author;
-}
+    }
 }
 
 class NovelBook extends Book {
@@ -63,10 +64,29 @@ class DetectiveBook extends Book {
     }
 }
 
+
+//Задача 2
+
 class Library {
     constructor (name) {
         this.name = name;
         this.books = [];
+        this.state = 0;
     }
-
 }
+ addBook(book); {
+     if (book.state > 30) {
+     books.push('book');
+     }
+ }
+
+ findBookBy(type, value); {
+     return this.books.find(item => item[type] === value) || null;
+ }
+
+ giveBookByName(bookName) {
+     const searchBook = this.books.find(item => item.name === bookName);
+     this.books.splice(this.books.indexOf(searchBook), 1);
+ }
+
+ return searchBook || null;
