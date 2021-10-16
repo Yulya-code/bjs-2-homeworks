@@ -7,14 +7,11 @@ class PrintEditionItem {
         this.type = null;
     }
 }
-  const item1 = new Item();
-  const item2 = new Item();
-
-    fix() {
+    fix(); {
      this.state *= 1,5;
     }
 
-    set state(grade) {
+    set state(grade); {
      if (grade < 0) {
          state == 0;
     } else if (grade > 100) {
@@ -24,7 +21,7 @@ class PrintEditionItem {
     this._state = grade;
 }
 
-    get state() {
+    get state(); {
         return this._state;
     }
 
