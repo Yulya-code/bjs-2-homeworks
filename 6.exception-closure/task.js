@@ -23,24 +23,21 @@ class Triangle {
       this.a = a;
       this.b = b;
       this.c = c;
-    }
 
-const triangle = new Triangle();
-this.perimeter = this.a + this.b + this.c;
-
-if((a + b) < c || (a + c) < b || (b + c) < a) {
+    if((a + b) < c || (a + c) < b || (b + c) < a) {
     throw new Error ("Треугольник с такими сторонами не существует");
+    }
 }
 
 getPerimeter() {
-    return this.perimeter;
+    return (this.a + this.b + this.c);
 }
 
 getArea() {
     let semiPerimeter = this.getPerimeter/ 2;
     let area = +(Math.sqrt(semiPerimeter * (semiPerimeter - this.a) * (semiPerimeter - this.b) * 
-    (semiPerimeter - this.c)).toFixed(3);   
-      
+    (semiPerimeter - this.c)).toFixed(3);
+
     return this.area;
 }
 }
