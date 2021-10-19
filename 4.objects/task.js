@@ -14,12 +14,14 @@ Student.prototype.addMark = function (mark) {
 if(this.marks === undefined){ 
   this.marks = []; 
   };
+  this.marks.push(mark);
 }
 
 Student.prototype.addMarks = function (...marks) {
 if(this.marks === undefined){ 
   this.marks = []; 
   };
+  this.marks.push(...marks);
 }
 
   Student.prototype.getAverage = function () {

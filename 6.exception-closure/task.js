@@ -36,7 +36,7 @@ getPerimeter() {
 getArea() {
     let semiPerimeter = this.getPerimeter/ 2;
     let area = +(Math.sqrt(semiPerimeter * (semiPerimeter - this.a) * (semiPerimeter - this.b) * 
-    (semiPerimeter - this.c)).toFixed(3);
+    (semiPerimeter - this.c))).toFixed(3);
 
     return this.area;
 }
