@@ -13,9 +13,9 @@ class PrintEditionItem {
 
     set state(grade); {
      if (grade < 0) {
-         state == 0;
+         this._state == 0;
     } else if (grade > 100) {
-        state == 100;
+        this._state == 100;
     } 
 
     this._state = grade;
@@ -68,22 +68,22 @@ class Library {
     constructor (name) {
         this.name = name;
         this.books = [];
-        this.state = 0;
     }
-}
- addBook(book); {
+
+ addBook(book) {
      if (book.state > 30) {
-     books.push('book');
-     }
+     this.books.push(book);
+    }
  }
 
- findBookBy(type, value); {
+ findBookBy(type, value) {
      return this.books.find(item => item[type] === value) || null;
  }
 
  giveBookByName(bookName) {
      const searchBook = this.books.find(item => item.name === bookName);
      this.books.splice(this.books.indexOf(searchBook), 1);
+     
+     return searchBook || null;
  }
-
- return searchBook || null;
+}
