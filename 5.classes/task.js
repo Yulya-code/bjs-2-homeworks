@@ -11,11 +11,11 @@ class PrintEditionItem {
      this.state *= 1,5;
     }
 
-    set state(grade); {
+    set this._state(grade); {
      if (grade < 0) {
-         this._state == 0;
+       this._state == 0;
     } else if (grade > 100) {
-        this._state == 100;
+       this._state = 100;
     } 
 
     this._state = grade;
