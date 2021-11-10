@@ -4,61 +4,79 @@ this.alarmCollection = [];
 this.timerId = null;
  }
 
-addClock = (time, callback, id) => {
+ class Bell {
+     constructor(){
+ this.id = id;
+ this.callback = callback;
+ this.time = time;
+ }
+ }
+
+ const bell = new Bell();
+
+addClock(time, callback, id) {
 if (!id) {
-    throw new Error('Параметр не передан');
-    } else if (id == this.alarmCollection[id]) {
+    throw new Error('Параметр ID не передан');
+    } else if (this.alarmCollection.some(item => item.id == id)) {
         return console.error('Будильник с таким id уже существует!');
     }
 
-    this.alarmCollection.push(AlarmClock(id, time, callback));
+    this.alarmCollection.push(bell(id, time, callback));
 }
 
-removeClock = (id) => {
-    const startAlarmCollection = this.alarmCollection;
-    this.alarmCollection.filter(item => item.id !== id);
-    return startAlarmCollection.length > this.alarmCollection.length;
+
+removeClock(id) {
+    const filtered = this.alarmCollection.filter(item => item.id !== id) {
+      return : filtered,
+    };
+     filtered.length < this.alarmCollection.length;
 }
 
-getCurrentFormattedTime = () => {
+getCurrentFormattedTime() {
     const currentDate = new Date();
-    const hours = currentDate.getHours();
-    const minutes = currentDate.getMinutes();
-    
-    return `${hours} : ${minutes}`;
+    currentDate.toLocaleTimeString("ru-Ru", {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+      return getCurrentFormattedTime();
 }
 
 
-start = () => {
+start() {
 const checkClock = (alarm) => {
     if(this.getCurrentFormattedTime() == alarm.time) {
        alarm.callback();
-    } else if (!this.timerId) {
-        this.timerId = setInterval = (() => {
-            this.alarmCollection.forEach(checkClock);
-        }, 1000);
+    } 
+     if (!this.timerId) {
+       timerId = setInterval = (() => {
+       this.alarmCollection.forEach(checkClock());
+    }, 1000);
     } 
 }
+start();
 }
 
-printAlarms = () => {
+stop() {
+ if (this.timerId != null) {
+     clearInterval();
+     // не знаю как удалить значение свойства, не удалив все свойство (через delete , например)
+ }
+}
+
+printAlarms() {
     const alarmInfo = (alarm) => {
       console.log(alarm.id, alarm.time);
     }
     this.alarmCollection.forEach(alarmInfo);
 }
 
-clearAlarms = () => {
+clearAlarms() {
     clearInterval(this.timerId);
-    delete this.alarmCollection;
+    this.alarmCollection = [];
 }
 }
 
-const alarmClock = new AlarmClock();
+const phoneAlarm = new AlarmClock();
 
-alarmClock.addClock(alarmClock.getCurrentFormattedTime, alarmClock.printAlarms, 1);
-
-alarmClock.addClock((alarmClock.getCurrentFormattedTime) + 60000, alarmClock.printAlarms, 
-alarmClock.clearAlarms(1000));
-
+phoneAlarm.addClock();
 
