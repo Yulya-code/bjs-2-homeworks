@@ -30,22 +30,22 @@ getCurrentFormattedTime() {
 
 start() {
 const checkClock = (alarm) => {
-    if(this.getCurrentFormattedTime() == alarm.time) {
-       alarm.callback();
-    } 
+    if (this.getCurrentFormattedTime() == alarm.time) {
+        alarm.callback;
+    }
+} 
      if (!this.timerId) {
-       timerId = setInterval = (() => {
-       this.alarmCollection.forEach(checkClock());
+       this.timerId = setInterval = (() => {
+       this.alarmCollection.forEach(checkClock(alarm));
     }, 1000);
     } 
-}
 }
 
 stop() {
 const checkTimerId = (timerId) => {
     if (this.timerId != null) {
      clearInterval();
-     timerId = [];
+     timerId = null;
  }
 }
 }
@@ -58,7 +58,7 @@ printAlarms() {
 }
 
 clearAlarms() {
-    clearInterval(this.timerId);
+    this.stop;
     this.alarmCollection = [];
 }
 }
