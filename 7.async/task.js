@@ -2,17 +2,7 @@ class AlarmClock {
     constructor () {
 this.alarmCollection = [];
 this.timerId = null;
- }
-
- class Bell {
-     constructor(){
- this.id = id;
- this.callback = callback;
- this.time = time;
- }
- }
-
- const bell = new Bell();
+}
 
 addClock(time, callback, id) {
 if (!id) {
@@ -20,27 +10,23 @@ if (!id) {
     } else if (this.alarmCollection.some(item => item.id == id)) {
         return console.error('Будильник с таким id уже существует!');
     }
-
-    this.alarmCollection.push(bell(id, time, callback));
+this.alarmCollection.push(new Bell(id, time, callback));
 }
 
-
 removeClock(id) {
-    const filtered = this.alarmCollection.filter(item => item.id !== id) {
-      return : filtered,
-    };
-     filtered.length < this.alarmCollection.length;
+    const initialAlarmCollection = this.alarmCollection;
+    this.alarmCollection = this.alarmCollection.filter(item => item.id !== id);
+   
+    return initialAlarmCollection.length > this.alarmCollection.length;
 }
 
 getCurrentFormattedTime() {
     const currentDate = new Date();
-    currentDate.toLocaleTimeString("ru-Ru", {
+    return currentDate.toLocaleTimeString("ru-Ru", {
         hour: "2-digit",
         minute: "2-digit",
       });
-      return getCurrentFormattedTime();
 }
-
 
 start() {
 const checkClock = (alarm) => {
@@ -53,14 +39,15 @@ const checkClock = (alarm) => {
     }, 1000);
     } 
 }
-start();
 }
 
 stop() {
- if (this.timerId != null) {
+const checkTimerId = (timerId) => {
+    if (this.timerId != null) {
      clearInterval();
-     // не знаю как удалить значение свойства, не удалив все свойство (через delete , например)
+     timerId = [];
  }
+}
 }
 
 printAlarms() {
@@ -78,5 +65,10 @@ clearAlarms() {
 
 const phoneAlarm = new AlarmClock();
 
-phoneAlarm.addClock();
-
+class Bell {
+    constructor(id, time, callback) {
+        this.id = id;
+        this.time = time;
+        this.callback = callback;
+    }
+}
