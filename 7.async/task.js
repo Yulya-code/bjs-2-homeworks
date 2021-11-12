@@ -37,17 +37,16 @@ const checkClock = (alarm) => {
      if (!this.timerId) {
        this.timerId = setInterval = (() => {
        this.alarmCollection.forEach(checkClock(alarm));
-    }, 1000);
+    });
     } 
 }
 
 stop() {
-const checkTimerId = (timerId) => {
-    if (this.timerId != null) {
+const checkTimerId = timerId => this.timerId != null;
+    if (checkTimerId) {
      clearInterval();
-     timerId = null;
+     this.timerId = null;
  }
-}
 }
 
 printAlarms() {
